@@ -68,6 +68,21 @@ const loginUser = asyncHandler(async (req, res) => {
 	}
 });
 
+//@desc   Get current user
+//@route  /apa/users/current-user
+//@access Private
+const getCurrentUser = asyncHandler(async (req, res) => {
+	const user = {
+		id: req.user._id,
+		name: req.user.name,
+		email: req.user.email,
+		isAdmin: req.user.isAdmin,
+		createdAt: req.user.createdAt,
+		updatedAt: req.user.updatedAt,
+	};
+	res.status(200).json(user);
+});
+
 // Generate Toke
 const generateToken = (id) => {
 	return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -78,4 +93,5 @@ const generateToken = (id) => {
 module.exports = {
 	registerUser,
 	loginUser,
+	getCurrentUser,
 };
