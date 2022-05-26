@@ -264,6 +264,7 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-size: medium;
 }
 
 .ticket-page .btn {
@@ -375,6 +376,10 @@ footer {
     border-color: #000 transparent #555 transparent;
     border-radius: 50%;
     animation: spin 1.2s linear infinite;
+}
+
+.medium {
+    font-size: medium;
 }
 
 @keyframes spin {
