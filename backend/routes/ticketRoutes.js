@@ -10,6 +10,9 @@ const {
 
 const { protect } = require("../middleware/authMiddleware");
 
+const noteRouter = require("./noteRoutes");
+router.use("/:id/notes", noteRouter);
+
 router.route("/").get(protect, getTickets).post(protect, createTicket);
 router
 	.route("/:id")
