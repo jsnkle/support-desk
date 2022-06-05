@@ -4,9 +4,9 @@ import { getTicket } from "features/tickets/ticketSlice";
 
 const initialState = {
 	notes: [],
-	isError: false,
-	isSuccess: false,
-	isLoading: false,
+	noteError: false,
+	noteSuccess: false,
+	noteLoading: false,
 	message: "",
 };
 
@@ -39,16 +39,16 @@ export const noteSlice = createSlice({
 	extraReducers: (builder) => {
 		builder
 			.addCase(getNotes.pending, (state) => {
-				state.isLoading = true;
+				state.noteLoading = true;
 			})
 			.addCase(getNotes.fulfilled, (state, action) => {
-				state.isLoading = false;
-				state.isSuccess = true;
+				state.noteLoading = false;
+				state.noteSuccess = true;
 				state.notes = action.payload;
 			})
 			.addCase(getNotes.rejected, (state, action) => {
-				state.isLoading = false;
-				state.isError = true;
+				state.noteLoading = false;
+				state.noteError = true;
 				state.message = action.payload;
 			});
 	},
